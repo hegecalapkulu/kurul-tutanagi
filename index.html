@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Kurul Tutanağı // Dosya No: #UTKU-74</title>
+  <meta property="og:title" content="Olağanüstü Kurul Tutanağı // Dosya: UTKU" />
+  <meta property="og:description" content="Yılmaz, İlkkan ve Ersoy Arasındaki Uyuşmazlık Dosyası — Hakem Doğrulama Sistemi (Ref: #UTKU-74)." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --gibi-bg: #070709;
+      --gibi-panel: #111116;
+      --gibi-ivory: #f4f0e6;
+      --gibi-gold: #c5a059;
+      --gibi-gold-dark: #6e5528;
+      --gibi-red: #b91c1c;
+      --gibi-muted: #9a9488;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
+    }
+
+    body {
+      background-color: #070709;
+      color: #f4f0e6;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .font-gibi {
+      font-family: 'Playfair Display', Georgia, serif;
+    }
+
+    .font-cinzel {
+      font-family: 'Cinzel', Georgia, serif;
+      letter-spacing: 0.08em;
+    }
+
+    /* Editorial / Theatrical Dossier Frames */
+    .dossier-frame {
+      background: #0c0c10;
+      border: 2px solid #6e5528;
+      box-shadow: inset 0 0 0 1px #070709, inset 0 0 32px rgba(0, 0, 0, 0.92), 0 16px 48px rgba(0, 0, 0, 0.95);
+    }
+
+    .dossier-subpanel {
+      background: linear-gradient(180deg, #15151c 0%, #0d0d12 100%);
+      border: 1px solid #3d311b;
+      box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.85);
+    }
+
+    .dossier-subpanel-gold {
+      background: linear-gradient(180deg, #1b1812 0%, #0f0e0c 100%);
+      border: 1px solid #c5a059;
+      box-shadow: inset 0 0 20px rgba(197, 160, 89, 0.12);
+    }
+
+    /* Buttons */
+    .btn-gibi-gold {
+      background: linear-gradient(180deg, #c5a059 0%, #8f6f32 100%);
+      border: 1px solid #f4f0e6;
+      color: #070709;
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 0 20px rgba(197, 160, 89, 0.35);
+      transition: all 0.18s ease;
+    }
+    .btn-gibi-gold:hover {
+      filter: brightness(1.12);
+      box-shadow: 0 0 28px rgba(197, 160, 89, 0.65);
+    }
+    .btn-gibi-gold:active {
+      transform: scale(0.97);
+    }
+
+    .btn-gibi-red {
+      background: linear-gradient(180deg, #991b1b 0%, #5c0f0f 100%);
+      border: 1px solid #f87171;
+      color: #fef2f2;
+      font-family: 'Cinzel', serif;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 0 18px rgba(185, 28, 28, 0.4);
+      transition: all 0.18s ease;
+    }
+    .btn-gibi-red:hover {
+      background: linear-gradient(180deg, #dc2626 0%, #7f1d1d 100%);
+      box-shadow: 0 0 26px rgba(220, 38, 38, 0.7);
+    }
+    .btn-gibi-red:active {
+      transform: scale(0.97);
+    }
+
+    /* Character Cards */
+    .char-card {
+      position: relative;
+      border: 1px solid #3d311b;
+      background: #101015;
+      transition: all 0.18s ease;
+    }
+    .char-card:hover {
+      border-color: #c5a059;
+    }
+    .char-card.selected-pick {
+      border: 2px solid #c5a059;
+      background: #1c1812;
+      box-shadow: 0 0 20px rgba(197, 160, 89, 0.45);
+    }
+    .char-card.selected-ban {
+      border: 2px solid #dc2626;
+      background: #1f1012;
+      box-shadow: 0 0 20px rgba(220, 38, 38, 0.45);
+    }
+    .char-card.is-banned {
+      opacity: 0.55;
+      filter: grayscale(85%);
+    }
+
+    /* Rubber Stamp Effect */
+    .stamp-veto {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-14deg);
+      border: 2px solid #ef4444;
+      background: rgba(127, 29, 29, 0.9);
+      color: #fecaca;
+      font-family: 'Cinzel', serif;
+      font-weight: 900;
+      font-size: 11px;
+      padding: 2px 8px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      pointer-events: none;
+      white-space: nowrap;
+    }
+
+    /* Skill Slot */
+    .skill-slot {
+      position: relative;
+      border: 2px solid #6e5528;
+      background: #09090d;
+      transition: all 0.15s ease;
+    }
+    .skill-slot:hover {
+      border-color: #f4f0e6;
+      box-shadow: 0 0 14px rgba(197, 160, 89, 0.65);
+      transform: translateY(-2px);
+    }
+    .skill-key {
+      position: absolute;
+      bottom: -2px;
+      right: -2px;
+      background: #070709;
+      border: 1px solid #c5a059;
+      color: #c5a059;
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1;
+      padding: 2px 4px;
+    }
+
+    @keyframes titleCardFade {
+      0% { opacity: 0; transform: scale(0.94); }
+      18% { opacity: 1; transform: scale(1); }
+      85% { opacity: 1; transform: scale(1); }
+      100% { opacity: 0; transform: scale(1.03); }
+    }
+    @keyframes candleFlicker {
+      0%, 100% { transform: scaleY(1) rotate(-2deg); opacity: 1; }
+      50% { transform: scaleY(1.18) rotate(2deg); opacity: 0.85; }
+    }
+    .candle-flame { animation: candleFlicker 0.6s ease-in-out infinite; transform-origin: bottom center; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-0 sm:p-4 select-none">
+
+  <!-- Persistent HTML5 Audio Elements for 100% Mobile / iOS Silent-Switch Bypass -->
+  <audio id="sfx-player" playsinline preload="auto"></audio>
+  <audio id="vo-player" playsinline preload="auto"></audio>
+  <audio id="bgm-player" playsinline preload="auto"></audio>
+
+  <!-- ===================================================== -->
+  <!-- OVERLAY 0: OLAĞANÜSTÜ OTURUM ÇAĞRISI (AUDIO UNLOCK)    -->
+  <!-- ===================================================== -->
+  <div id="ready-check-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-[#070709]/95 backdrop-blur-md p-4">
+    <div class="relative w-full max-w-md dossier-frame p-6 sm:p-8 flex flex-col items-center text-center">
+      <div class="w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#c5a059] to-transparent mb-5"></div>
+
+      <div class="px-3 py-1 border border-[#c5a059] bg-[#16130d] text-[#c5a059] font-cinzel text-xs font-bold tracking-widest uppercase mb-4">
+        DOSYA NO: #UTKU-2026 // ACİL GÜNDEM
+      </div>
+
+      <h1 class="font-gibi text-2xl sm:text-3xl font-black text-[#f4f0e6] tracking-wide">
+        OLAĞANÜSTÜ UZLAŞMA KURULU
+      </h1>
+
+      <p class="text-xs sm:text-sm text-[#9a9488] mt-3 mb-6 leading-relaxed">
+        <strong>Yılmaz</strong>, <strong>İlkkan</strong> ve <strong>Ersoy</strong> arasında sabah saatlerinde patlak veren <em>"Mühürlü Paket ve İlkeler Uyuşmazlığı"</em> krizinde bağımsız hakem olarak <strong class="text-[#f4f0e6]">UTKU</strong> tayin edilmiştir.
+      </p>
+
+      <button onclick="acceptSession()" class="btn-gibi-gold w-full py-3.5 px-6 text-xs sm:text-sm cursor-pointer">
+        OTURUMU AÇ VE TUTANAĞI İNCELE
+      </button>
+
+      <div class="w-3/4 h-[1px] bg-gradient-to-r from-transparent via-[#6e5528] to-transparent mt-6"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- ICONIC "GİBİ" BLACK SCREEN EPISODE TITLE CARD OVERLAY -->
+  <!-- ===================================================== -->
+  <div id="titlecard-overlay" class="pointer-events-none fixed inset-0 z-50 hidden items-center justify-center bg-black p-6">
+    <div class="flex flex-col items-center text-center max-w-2xl" style="animation: titleCardFade 2.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;">
+      <div class="w-16 h-[1px] bg-[#c5a059] mb-6"></div>
+      <div class="font-cinzel text-xs sm:text-sm tracking-[0.35em] text-[#c5a059] uppercase mb-3">
+        GİBİ // ÖZEL BÖLÜM
+      </div>
+      <h1 id="titlecard-main" class="font-gibi text-3xl sm:text-6xl font-black text-[#f4f0e6] tracking-wide uppercase">
+        İYİ Kİ DOĞDUN UTKU
+      </h1>
+      <p id="titlecard-sub" class="font-gibi italic text-sm sm:text-lg text-[#9a9488] mt-4"></p>
+      <div class="w-16 h-[1px] bg-[#c5a059] mt-6"></div>
+    </div>
+  </div>
+
+  <!-- ===================================================== -->
+  <!-- MAIN DOSSIER WINDOW                                   -->
+  <!-- ===================================================== -->
+  <div id="app-frame" class="relative w-full max-w-5xl min-h-[100dvh] sm:min-h-0 dossier-frame overflow-hidden flex flex-col justify-between">
+    
+    <!-- Particle Canvas -->
+    <canvas id="fx-canvas" class="pointer-events-none absolute inset-0 w-full h-full z-30"></canvas>
+
+    <!-- ===================================================== -->
+    <!-- TOP HEADER BAR                                        -->
+    <!-- ===================================================== -->
+    <div class="relative z-20 flex items-center justify-between px-3 sm:px-6 py-2.5 bg-[#070709] border-b border-[#6e5528]">
+      <div class="flex items-center gap-2.5 min-w-0">
+        <div class="w-6 h-6 border border-[#c5a059] bg-[#16130d] flex items-center justify-center shrink-0">
+          <span class="font-gibi text-xs font-black text-[#c5a059]">G</span>
+        </div>
+        <span id="header-title" class="font-cinzel text-xs sm:text-sm font-bold tracking-widest uppercase text-[#c5a059] truncate">
+          KRİZ TUTANAĞI // HAKEM: UTKU
+        </span>
+      </div>
+
+      <div class="flex items-center gap-2 shrink-0">
+        <button id="change-char-top-btn" onclick="goToCharSelect()" class="hidden dossier-subpanel px-3 py-1 text-xs font-cinzel font-bold text-[#c5a059] hover:border-[#c5a059] cursor-pointer">
+          KURULA DÖN
+        </button>
+        <button id="sound-btn" onclick="toggleAudio()" class="dossier-subpanel px-2.5 py-1 text-xs text-[#f4f0e6] hover:border-[#c5a059] transition flex items-center gap-1.5 cursor-pointer">
+          <span id="sound-icon">🔊</span>
+          <span id="sound-label" class="font-semibold">SES AÇIK</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- STAGE 0: CHARACTER BAN & PICK LOBBY (YILMAZ/İLKKAN/ERSOY) -->
+    <!-- ===================================================== -->
+    <div id="stage-select" class="relative z-20 flex-1 flex flex-col justify-between p-3 sm:p-5 space-y-3 sm:space-y-4">
+      
+      <!-- Top Phase Status + Veto Slot + Timer -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 pb-2.5 border-b border-[#3d311b]">
+        
+        <!-- Vetoed Character Slot -->
+        <div class="flex items-center gap-2 self-start sm:self-center">
+          <span class="font-cinzel text-xs text-[#9a9488] uppercase tracking-wider">GÜNDEM DIŞI (BAN):</span>
+          <span id="ban-char-name" class="text-xs px-2 py-0.5 border border-[#7f1d1d] bg-[#1f1012] text-[#f87171] font-bold">
+            Henüz Seçilmedi
+          </span>
+        </div>
+
+        <!-- Center Phase Title -->
+        <div class="text-center">
+          <div id="draft-phase-subtitle" class="text-xs uppercase tracking-[0.2em] text-[#ef4444] font-bold">
+            EVRE 1 // İTİRAZ VE YASAKLAMA HAKKI (UTKU)
+          </div>
+          <h2 id="draft-phase-title" class="font-gibi text-lg sm:text-2xl font-black text-[#f4f0e6] tracking-wide uppercase">
+            ÖNCE MASADA KAFA ÜTÜLEYECEK 1 KİŞİYİ YASAKLA!
+          </h2>
+        </div>
+
+        <!-- Timer -->
+        <div class="flex items-center gap-2 self-end sm:self-center">
+          <span class="text-xs text-[#9a9488] uppercase">SÜRE:</span>
+          <span id="draft-timer" class="font-cinzel text-2xl sm:text-3xl font-black text-[#c5a059] w-10 text-right">29</span>
+        </div>
+      </div>
+
+      <!-- Main Grid: Left Hakem Utku Card + Right 3 Characters Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-3 sm:gap-4 items-stretch">
+        
+        <!-- Left Column: Hakem UTKU & Selected Character Arguments (5 cols) -->
+        <div class="md:col-span-5 flex flex-col justify-between space-y-3">
+          
+          <!-- Utku Arbitrator Card -->
+          <div class="dossier-subpanel-gold p-3.5 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3 min-w-0">
+              <div id="utku-slot-avatar" class="w-14 h-14 rounded-full border-2 border-[#c5a059] bg-[#070709] flex items-center justify-center shrink-0 overflow-hidden"></div>
+              <div class="min-w-0">
+                <div id="utku-slot-action" class="text-xs font-bold uppercase tracking-wider text-[#ef4444]">
+                  GÜNDEM DIŞI BIRAKIYOR...
+                </div>
+                <div class="font-cinzel text-base font-black text-[#f4f0e6] truncate">
+                  BAŞ HAKEM: UTKU
+                </div>
+                <div id="utku-slot-char" class="text-xs text-[#c5a059] truncate"></div>
+              </div>
+            </div>
+            <div class="px-2 py-1 border border-[#6e5528] bg-[#070709] text-[10px] font-cinzel text-[#c5a059] font-bold shrink-0">
+              TAM YETKİ
+            </div>
+          </div>
+
+          <!-- Selected Character Dossier & 5 Signature Arguments (P, Q, W, E, R) -->
+          <div class="dossier-subpanel p-3.5 space-y-3 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between border-b border-[#3d311b] pb-1.5">
+                <span id="preview-char-name" class="font-cinzel text-sm font-bold text-[#f4f0e6]"></span>
+                <span id="preview-char-role" class="text-xs text-[#c5a059] font-semibold"></span>
+              </div>
+              <p id="preview-char-desc" class="text-xs text-[#d6d1c4] mt-2 italic leading-relaxed"></p>
+            </div>
+
+            <div>
+              <div class="text-xs text-[#c5a059] font-cinzel uppercase tracking-wider mb-1.5">
+                KARAKTERİN KRİZ YETENEKLERİ (P / Q / W / E / R):
+              </div>
+              <div id="lobby-skills-row" class="grid grid-cols-5 gap-1.5"></div>
+              <div id="lobby-skill-detail" class="text-xs text-[#f4f0e6] font-medium mt-2 leading-snug"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Yılmaz, İlkkan, Ersoy Cards (7 cols) -->
+        <div class="md:col-span-7 dossier-subpanel p-3.5 sm:p-4 flex flex-col justify-between space-y-3">
+          <div class="flex items-center justify-between border-b border-[#3d311b] pb-2">
+            <span class="font-cinzel text-xs font-bold uppercase tracking-widest text-[#c5a059]">
+              TARAF DOSYALARI (YILMAZ // İLKKAN // ERSOY)
+            </span>
+            <span id="pool-hint" class="text-xs text-[#9a9488]">
+              İncelemek için karaktere dokun
+            </span>
+          </div>
+
+          <!-- 3 Detailed Character Cards -->
+          <div id="char-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-3 my-auto"></div>
+
+          <!-- Action Bar -->
+          <div class="pt-2.5 border-t border-[#3d311b] flex flex-col sm:flex-row items-center justify-between gap-2.5">
+            <div id="ban-override-msg" class="text-xs text-[#9a9488] text-center sm:text-left">
+              Adım 1: Önce 1 kişiyi gündem dışı bırak, sonra krizi çözeceğin kişiyi kilitle.
+            </div>
+            <div class="flex items-center gap-2 w-full sm:w-auto justify-center">
+              <button id="skip-ban-btn" onclick="skipBanPhase()" class="dossier-subpanel px-3 py-2.5 text-xs text-[#9a9488] hover:text-[#f4f0e6] hover:border-[#c5a059] cursor-pointer">
+                YASAKLAMAYI GEÇ
+              </button>
+              <button id="draft-action-btn" onclick="handleDraftAction()" class="btn-gibi-red flex-1 sm:flex-initial px-6 py-2.5 text-xs sm:text-sm cursor-pointer">
+                GÜNDEM DIŞI BIRAK (BAN)
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- STAGE 1: 3-STEP ABSURD "GİBİ" ARGUMENT SCENE (TRAP)   -->
+    <!-- ===================================================== -->
+    <div id="stage-disguise" class="hidden relative z-20 flex-1 flex flex-col justify-between p-3 sm:p-6 space-y-4">
+      
+      <!-- Top Scene Info -->
+      <div class="dossier-subpanel p-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+        <div class="flex items-center gap-3.5">
+          <div id="disguise-char-avatar" class="w-14 h-14 border-2 border-[#c5a059] bg-[#070709] flex items-center justify-center shrink-0"></div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs uppercase tracking-widest px-2 py-0.5 bg-[#c5a059]/20 text-[#c5a059] border border-[#c5a059]/50 font-bold">
+                OLAY YERİ MASASI
+              </span>
+              <span id="disguise-char-tag" class="font-cinzel text-xs text-[#c5a059] font-bold"></span>
+            </div>
+            <h1 class="font-gibi text-lg sm:text-xl font-black text-[#f4f0e6] mt-1">
+              BAŞ HAKEM: UTKU
+            </h1>
+            <p id="disguise-syndrome" class="text-xs text-[#9a9488]"></p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-2 w-full sm:w-auto">
+          <div class="dossier-frame px-3 py-1.5">
+            <div id="metric-1-label" class="text-[11px] text-[#9a9488] uppercase"></div>
+            <div id="metric-1-val" class="text-xs sm:text-sm font-bold text-[#ef4444]"></div>
+          </div>
+          <div class="dossier-frame px-3 py-1.5">
+            <div id="metric-2-label" class="text-[11px] text-[#9a9488] uppercase"></div>
+            <div id="metric-2-val" class="text-xs sm:text-sm font-bold text-[#c5a059]"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dialogue Box (Yılmaz, İlkkan, Ersoy arguing) -->
+      <div class="dossier-subpanel-gold p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div class="space-y-1">
+          <div id="scene-speaker" class="font-cinzel text-xs font-bold uppercase tracking-widest text-[#c5a059]"></div>
+          <p id="mission-desc" class="text-xs sm:text-sm text-[#f4f0e6] leading-relaxed"></p>
+        </div>
+        <span id="step-counter" class="font-cinzel text-xs font-black px-3 py-1 border border-[#c5a059] bg-[#070709] text-[#c5a059] shrink-0 self-start sm:self-center">
+          TUTANAK 1 / 3
+        </span>
+      </div>
+
+      <!-- Interactive Table Arena -->
+      <div id="arena" class="relative h-64 sm:h-72 dossier-frame overflow-hidden flex flex-col items-center justify-center p-3">
+        <div class="pointer-events-none absolute inset-0 opacity-15" style="background-image: radial-gradient(#c5a059 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+        <div id="arena-toast" class="pointer-events-none absolute top-2.5 left-1/2 -translate-x-1/2 z-20 w-[94%] sm:w-auto px-4 py-1.5 bg-[#070709]/95 border border-[#6e5528] text-xs font-semibold text-[#f4f0e6] text-center"></div>
+
+        <div class="relative w-full h-full flex items-center justify-center pt-6">
+          
+          <!-- Step 1 & 2 Mystery Evidence Box -->
+          <button id="trap-target-btn" onclick="handleTrapClick(event)" class="group relative flex flex-col items-center justify-center p-2 transition-all duration-200 cursor-pointer focus:outline-none">
+            <div class="text-[11px] font-bold text-[#c5a059] mb-1">DELİL NO #74 — MÜHÜRLÜ KUTU</div>
+            <div class="w-28 h-2.5 bg-[#070709] border border-[#6e5528] p-[1px] mb-2">
+              <div id="trap-hp" class="w-full h-full bg-gradient-to-r from-[#b91c1c] to-[#c5a059] transition-all duration-300"></div>
+            </div>
+            <div id="trap-icon-box" class="relative w-18 h-18 sm:w-20 sm:h-20 border-2 border-[#c5a059] bg-[#14120e] group-hover:border-[#f4f0e6] shadow-[0_0_25px_rgba(197,160,89,0.4)] flex items-center justify-center p-2"></div>
+            <span id="trap-btn-label" class="mt-2 font-cinzel text-xs font-bold tracking-wider uppercase px-3 py-1 bg-[#070709] border border-[#c5a059] text-[#f4f0e6]"></span>
+          </button>
+
+          <!-- Step 3 Dual Decision Envelopes -->
+          <div id="clones-container" class="hidden w-full h-full items-center justify-around px-2 sm:px-12 gap-3">
+            <button onclick="triggerFinalAmbush(event)" class="group flex flex-col items-center p-2.5 hover:scale-105 active:scale-95 transition cursor-pointer">
+              <div class="text-[11px] text-[#c5a059] font-bold mb-1">KARAR ZARFI A</div>
+              <div id="clone-a-icon" class="w-16 h-16 sm:w-20 sm:h-20 border-2 border-[#c5a059] group-hover:border-[#f4f0e6] bg-[#14120e] shadow-[0_0_20px_rgba(197,160,89,0.4)] flex items-center justify-center p-2"></div>
+              <span id="clone-a-label" class="mt-2 font-cinzel text-xs font-bold px-3 py-1 bg-[#070709] border border-[#c5a059] text-[#f4f0e6] text-center"></span>
+            </button>
+
+            <button onclick="triggerFinalAmbush(event)" class="group flex flex-col items-center p-2.5 hover:scale-105 active:scale-95 transition cursor-pointer">
+              <div class="text-[11px] text-[#ef4444] font-bold mb-1">KARAR ZARFI B</div>
+              <div id="clone-b-icon" class="w-16 h-16 sm:w-20 sm:h-20 border-2 border-[#ef4444] group-hover:border-[#f4f0e6] bg-[#1f1012] shadow-[0_0_20px_rgba(239,68,68,0.4)] flex items-center justify-center p-2"></div>
+              <span id="clone-b-label" class="mt-2 font-cinzel text-xs font-bold px-3 py-1 bg-[#070709] border border-[#ef4444] text-[#fecaca] text-center"></span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between text-xs text-[#9a9488] px-1">
+        <span id="telemetry-log">> Tutanak kaydı açık. Hakem UTKU kararı bekleniyor...</span>
+        <span class="font-mono text-[#c5a059]">DOSYA #UTKU-74</span>
+      </div>
+    </div>
+
+    <!-- ===================================================== -->
+    <!-- STAGE 2: SURPRISE "GİBİ" BIRTHDAY EPISODE SCREEN      -->
+    <!-- ===================================================== -->
+    <div id="stage-birthday" class="hidden relative z-20 flex-1 flex flex-col justify-between p-3 sm:p-6 space-y-4">
+      
+      <!-- Top Gibi Episode Title Banner -->
+      <div class="dossier-subpanel-gold p-4 sm:p-5 text-center relative overflow-hidden">
+        <div id="bday-kicker" class="font-cinzel text-xs font-bold tracking-[0.22em] uppercase text-[#c5a059] mb-1"></div>
+        <h1 class="font-gibi text-2xl sm:text-4xl font-black text-[#f4f0e6] uppercase tracking-wider">
+          BÖLÜM 74: İYİ Kİ DOĞDUN UTKU!
+        </h1>
+        <p id="bday-quote" class="mt-2 text-xs sm:text-sm text-[#e5e0d5] italic max-w-2xl mx-auto leading-relaxed"></p>
+      </div>
+
+      <!-- Switch Between Yılmaz, İlkkan, Ersoy on Birthday Screen -->
+      <div class="dossier-subpanel p-2.5">
+        <div class="flex items-center justify-between mb-2 px-1">
+          <span class="font-cinzel text-xs font-bold uppercase tracking-wider text-[#c5a059]">
+            KARAKTER DEĞİŞTİR (YILMAZ, İLKKAN VE ERSOY'UN DOĞUM GÜNÜ TEPKİLERİNİ DENE):
+          </span>
+        </div>
+        <div id="bday-char-bar" class="grid grid-cols-3 gap-2"></div>
+      </div>
+
+      <!-- Center Grid: Cake + Tutanak / Yama Notları -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 items-stretch">
+        
+        <!-- Left: Cake & Candle Interaction (7 cols) -->
+        <div class="md:col-span-7 dossier-subpanel p-4 flex flex-col items-center justify-between">
+          <div class="w-full flex items-center justify-between border-b border-[#3d311b] pb-2">
+            <span id="cake-title" class="font-cinzel text-xs font-bold uppercase tracking-wider text-[#c5a059]"></span>
+            <span id="candle-status" class="text-xs font-bold px-2.5 py-0.5 border border-[#c5a059] bg-[#070709] text-[#c5a059]">
+              3 MUM YANIYOR
+            </span>
+          </div>
+
+          <div id="cake-stage" class="relative my-2 flex flex-col items-center justify-center transition-all duration-500">
+            <div id="cake-char-badge" class="w-16 h-16 rounded-full border-2 border-[#c5a059] bg-[#070709] flex items-center justify-center -mb-3 z-10 shadow-[0_0_20px_rgba(197,160,89,0.5)]"></div>
+
+            <svg class="w-48 h-36 overflow-visible" viewBox="0 0 200 145" fill="none">
+              <g onclick="blowCandle(0)" class="cursor-pointer">
+                <rect x="66" y="33" width="8" height="24" rx="1" fill="#c5a059" stroke="#f4f0e6" stroke-width="1.5"/>
+                <g id="flame-0" class="candle-flame">
+                  <path d="M70 15 C64 25, 66 32, 70 32 C74 32, 76 25, 70 15 Z" fill="#facc15"/>
+                  <circle cx="70" cy="27" r="2.5" fill="#ef4444"/>
+                </g>
+              </g>
+              <g onclick="blowCandle(1)" class="cursor-pointer">
+                <rect x="96" y="29" width="8" height="28" rx="1" fill="#c5a059" stroke="#f4f0e6" stroke-width="1.5"/>
+                <g id="flame-1" class="candle-flame">
+                  <path d="M100 11 C94 21, 96 28, 100 28 C104 28, 106 21, 100 11 Z" fill="#facc15"/>
+                  <circle cx="100" cy="23" r="2.5" fill="#ef4444"/>
+                </g>
+              </g>
+              <g onclick="blowCandle(2)" class="cursor-pointer">
+                <rect x="126" y="33" width="8" height="24" rx="1" fill="#c5a059" stroke="#f4f0e6" stroke-width="1.5"/>
+                <g id="flame-2" class="candle-flame">
+                  <path d="M130 15 C124 25, 126 32, 130 32 C134 32, 136 25, 130 15 Z" fill="#facc15"/>
+                  <circle cx="130" cy="27" r="2.5" fill="#ef4444"/>
+                </g>
+              </g>
+
+              <rect x="52" y="55" width="96" height="32" rx="2" fill="#1b1812" stroke="#c5a059" stroke-width="2"/>
+              <path d="M52 66 H148" stroke="#ef4444" stroke-width="2" stroke-dasharray="6 4"/>
+              <rect x="36" y="87" width="128" height="40" rx="2" fill="#070709" stroke="#c5a059" stroke-width="2.5"/>
+              <text x="100" y="112" text-anchor="middle" fill="#f4f0e6" font-family="Cinzel, serif" font-size="14" font-weight="900" letter-spacing="2">İYİ Kİ DOĞDUN UTKU</text>
+              <ellipse cx="100" cy="129" rx="78" ry="5" fill="#6e5528"/>
+            </svg>
+          </div>
+
+          <p id="cake-action-text" class="text-xs text-center text-[#9a9488] mb-3">
+            Mumlara dokun ya da aşağıdaki özel hamleyle tek seferde söndür!
+          </p>
+
+          <button id="blow-btn" onclick="castSkill('E')" class="btn-gibi-gold w-full py-2.5 px-4 text-xs sm:text-sm cursor-pointer"></button>
+        </div>
+
+        <!-- Right: Kurul Kararları & Dostundan Mesaj (5 cols) -->
+        <div class="md:col-span-5 dossier-subpanel p-4 flex flex-col justify-between space-y-3">
+          <div>
+            <div class="flex items-center justify-between border-b border-[#3d311b] pb-2">
+              <span id="patch-title" class="font-cinzel text-xs font-bold uppercase tracking-wider text-[#c5a059]"></span>
+              <span class="text-[11px] px-2 py-0.5 border border-[#c5a059] text-[#c5a059] font-bold">
+                OYBİRLİĞİYLE KABUL
+              </span>
+            </div>
+            <ul id="patch-list" class="mt-3 space-y-2.5 text-xs"></ul>
+          </div>
+
+          <div class="dossier-frame p-3 text-xs text-[#f4f0e6] leading-relaxed">
+            <div class="font-cinzel font-bold text-[#c5a059] mb-1">DOSTUNDAN MESAJ:</div>
+            "İyi ki doğdun <strong>Utku</strong>! Yılmaz kadar ilkeli, İlkkan kadar özgüvenli (ama ondan çok daha mantıklı) ve Ersoy kadar neşeli bir yıl seninle olsun. Yeni yaşın sana bol kahkaha ve efsane anılar getirsin kanka!"
+          </div>
+        </div>
+      </div>
+
+      <!-- ===================================================== -->
+      <!-- CHARACTER SKILL / ARGUMENT HUD BAR (P, Q, W, E, R)    -->
+      <!-- ===================================================== -->
+      <div class="dossier-frame p-3 bg-[#070709]">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+          
+          <div class="flex items-center gap-3 w-full sm:w-auto justify-between sm:justify-start">
+            <div class="flex items-center gap-2.5">
+              <div id="hud-char-avatar" class="w-12 h-12 rounded-full border-2 border-[#c5a059] bg-[#070709] flex items-center justify-center shrink-0"></div>
+              <div>
+                <div id="hud-char-name" class="font-cinzel text-xs font-bold text-[#f4f0e6] uppercase"></div>
+                <div id="skill-feedback" class="text-xs text-[#c5a059]">Aşağıdaki P / Q / W / E / R hamlelerine dokun!</div>
+              </div>
+            </div>
+            <button onclick="playCurrentVoice('choose')" class="dossier-subpanel px-2.5 py-1.5 text-xs text-[#c5a059] hover:border-[#c5a059] cursor-pointer shrink-0">
+              🔊 Kaydı Dinle
+            </button>
+          </div>
+
+          <div id="skill-buttons-grid" class="grid grid-cols-5 gap-2 w-full sm:w-auto"></div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // =====================================================
+    // CUSTOM ILLUSTRATED PORTRAITS FOR YILMAZ, İLKKAN, ERSOY
+    // =====================================================
+    const PORTRAITS = {
+      yilmaz: `<svg class="w-12 h-12" viewBox="0 0 64 64" fill="none">
+        <rect width="64" height="64" fill="#161412"/>
+        <!-- Curly dark hair -->
+        <path d="M14 26 C12 12, 24 8, 32 10 C40 8, 52 12, 50 26" fill="#1c1917" stroke="#c5a059" stroke-width="1.5"/>
+        <!-- Face -->
+        <rect x="18" y="20" width="28" height="30" rx="10" fill="#d6b496"/>
+        <!-- Intense furrowed eyebrows -->
+        <path d="M22 28 L30 31 M42 28 L34 31" stroke="#1c1917" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="26" cy="33" r="2" fill="#09090b"/><circle cx="38" cy="33" r="2" fill="#09090b"/>
+        <!-- Full beard & mustache -->
+        <path d="M18 36 Q32 42 46 36 L44 46 Q32 54 20 46 Z" fill="#292524"/>
+        <path d="M26 42 H38" stroke="#d6b496" stroke-width="2" stroke-linecap="round"/>
+        <!-- Dark Jacket -->
+        <path d="M10 64 L18 48 H46 L54 64 Z" fill="#27272a" stroke="#c5a059" stroke-width="1.5"/>
+      </svg>`,
+
+      ilkkan: `<svg class="w-12 h-12" viewBox="0 0 64 64" fill="none">
+        <rect width="64" height="64" fill="#141619"/>
+        <!-- Side-parted hair -->
+        <path d="M16 24 C16 11, 48 11, 48 24" fill="#27272a" stroke="#c5a059" stroke-width="1.5"/>
+        <!-- Face -->
+        <rect x="18" y="20" width="28" height="30" rx="11" fill="#dfbfa3"/>
+        <!-- Iconic Glasses -->
+        <rect x="20" y="28" width="10" height="7" rx="1.5" stroke="#c5a059" stroke-width="2" fill="#09090b" fill-opacity="0.25"/>
+        <rect x="34" y="28" width="10" height="7" rx="1.5" stroke="#c5a059" stroke-width="2" fill="#09090b" fill-opacity="0.25"/>
+        <line x1="30" y1="31" x2="34" y2="31" stroke="#c5a059" stroke-width="2"/>
+        <circle cx="25" cy="31.5" r="1.8" fill="#09090b"/><circle cx="39" cy="31.5" r="1.8" fill="#09090b"/>
+        <!-- Mustache & trimmed beard -->
+        <path d="M24 40 Q32 37 40 40" stroke="#27272a" stroke-width="3" stroke-linecap="round"/>
+        <path d="M22 44 Q32 51 42 44" stroke="#27272a" stroke-width="3" fill="none"/>
+        <!-- 5500 TL Quilted Jacket -->
+        <path d="M10 64 L17 48 H47 L54 64 Z" fill="#1e3a8a" stroke="#c5a059" stroke-width="1.5"/>
+      </svg>`,
+
+      ersoy: `<svg class="w-12 h-12" viewBox="0 0 64 64" fill="none">
+        <rect width="64" height="64" fill="#171412"/>
+        <!-- Wavy/messy hair -->
+        <path d="M14 26 C10 10, 54 10, 50 26" fill="#451a03" stroke="#c5a059" stroke-width="1.5"/>
+        <!-- Face -->
+        <rect x="18" y="20" width="28" height="29" rx="11" fill="#e5c7ad"/>
+        <!-- Wide innocent bewildered eyes -->
+        <circle cx="26" cy="31" r="3" fill="#ffffff" stroke="#1c1917" stroke-width="1.5"/>
+        <circle cx="38" cy="31" r="3" fill="#ffffff" stroke="#1c1917" stroke-width="1.5"/>
+        <circle cx="26" cy="31" r="1.5" fill="#09090b"/><circle cx="38" cy="31" r="1.5" fill="#09090b"/>
+        <!-- Slightly open surprised mouth -->
+        <ellipse cx="32" cy="42" rx="4" ry="2.5" fill="#7f1d1d"/>
+        <!-- Vintage Sweater -->
+        <path d="M10 64 L18 48 H46 L54 64 Z" fill="#7c2d12" stroke="#c5a059" stroke-width="1.5"/>
+      </svg>`
+    };
+
+    const CHARACTERS = {
+      yilmaz: {
+        id: 'yilmaz',
+        name: 'Yılmaz',
+        title: 'İlkeler ve Gerginlik Uzmanı',
+        role: 'Baş Müzakereci',
+        portrait: PORTRAITS.yilmaz,
+        diag: '"Ya kardeşim ben sabahın köründe sizin saçma sapan gizemli kutunuzla mı uğraşacağım?! Utku gel şunu çöz gözünü seveyim!"',
+        metric1: ['İlkkan\'ı Darlama', '%99.8 (KRİTİK)'],
+        metric2: ['Haklılık Payı', '%100 İLKELİ'],
+        speaker: 'YILMAZ\'IN İTİRAZI:',
+        missionDesc: '<strong>Yılmaz:</strong> "Utku bak, masanın ortasına mühürlü bir kutu bırakmışlar. İlkkan \'dokunmayalım kurumsal kargodur\' diyor. İnadına şunun üstüne dokunup açıyoruz!"',
+        step1Toast: 'Adım 1: Masadaki Mühürlü Kutuya dokun ve İlkkan\'ı haksız çıkar!',
+        step1Btn: 'MÜHÜRLÜ KUTUYU AÇ (Q)',
+        step2Toast: 'Kutu masanın diğer ucuna kaydı! Yılmaz: "Oğlum kutu niye kaçıyor?! Utku yakala şunu!"',
+        step2Btn: 'KAÇAN KUTUYU YAKALA (W)',
+        step2Log: '> TUTANAK: Yılmaz masaya vurdu, kutu yer değiştirdi!',
+        step3Toast: 'Masadan iki ayrı zarf çıktı! Yılmaz: "Utku sakın İlkkan\'ın zarfını seçme bak!"',
+        step3CloneA: 'YILMAZ\'IN TEZİ',
+        step3CloneB: 'İLKKAN\'IN İTİRAZI',
+        titleCardSub: '"Ya kardeşim sabahtan beri kutu kutu diye kafa ütülediniz, Utku\'nun doğum günü pastasıymış işte!"',
+        bdayKicker: 'YILMAZ SONUNDA İKNA OLDU // OLAĞANÜSTÜ KUTLAMA KARARI',
+        bdayQuote: '"Bak Utku, normalde böyle sürpriz işlerine hiç girmem biliyorsun ama söz konusu sen olunca akan sular durur. İyi ki doğdun kardeşim!"',
+        blowBtnText: 'E — HAKLI GERGİNLİKLE TÜM MUMLARI SÖNDÜR',
+        patches: [
+          ['Madde 1 — İlkkan\'a İtiraz Hakkı:', 'Yeni yaşında çevrendeki tüm saçma fikirleri Yılmaz netliğiyle anında veto edebileceksin.'],
+          ['Madde 2 — Sınırsız Büfe & Çay:', 'Girdiğin her ortamda en taze çay ve en iyi dilim pasta otomatik olarak senin önüne gelecek.'],
+          ['Madde 3 — Sokak Köpekleri Dokunulmazlığı:', 'Yeni yaşında bütün aksilikler senden uzak duracak, keyfin %100 korunacak!']
+        ],
+        skills: [
+          { key: 'P', code: 'DAR', name: 'İlkkan\'ı Darlama', msg: '"Yılmaz (Pasif): İlkkan yine durduk yere azar işitti, Utku\'nun keyfi yerine geldi!"' },
+          { key: 'Q', code: 'İLK', name: 'İlkeler Meselesi', msg: '"Yılmaz (Q): \'Kardeşim bu bir ilke meselesi!\' dedi ve pastadaki mumları tekrar yaktı!"' },
+          { key: 'W', code: 'BÜF', name: 'Büfe Felsefesi', msg: '"Yılmaz (W): Masaya sosisli ve çay söylendi, doğum günü ortamı şenlendi!"' },
+          { key: 'E', code: 'ÜFL', name: 'Haklı Gerginlik', msg: '"Yılmaz (E): \'Böyle mum mu olur ya?!\' diyerek tek nefeste tüm mumları söndürdü! İyi ki doğdun Utku!"' },
+          { key: 'R', code: 'ULT', name: 'Masa Devirme', msg: '"YILMAZ ULTİ (R): \'Yeter ulan kutlama başlıyor!\' Her yere altın konfetiler saçıldı! İyi ki doğdun Utku!"' }
+        ]
+      },
+
+      ilkkan: {
+        id: 'ilkkan',
+        name: 'İlkkan',
+        title: 'Kurumsal İmaj & 5500 TL Mont',
+        role: 'Strateji Uzmanı',
+        portrait: PORTRAITS.ilkkan,
+        diag: '"Utku\'cuğum şimdi olaya biraz vizyoner ve Rönesans perspektifinden yaklaşalım. Bu kutu sıradan bir kutu değil."',
+        metric1: ['Mont Fiyatı', '5500 TL (İTALYAN)'],
+        metric2: ['Özgüven Oranı', '%140 VİZYONER'],
+        speaker: 'İLKKAN\'IN ANALİZİ:',
+        missionDesc: '<strong>İlkkan:</strong> "Utku bak Yılmaz anlamaz bu işlerden, bu masadaki paket yüksek ihtimalle benim İtalya\'dan beklediğim özel tasarım kargo. Şuna bir dokunup açalım."',
+        step1Toast: 'Adım 1: İlkkan\'ın "Özel Tasarım" paketine dokun!',
+        step1Btn: 'KURUMSAL PAKETİ AÇ (Q)',
+        step2Toast: 'Paket kayarak uzaklaştı! İlkkan: "Tabii Avrupa standartlarında güvenlik mekanizması var! Tekrar dokun Utku!"',
+        step2Btn: 'VİZYONER HAMLE YAP (W)',
+        step2Log: '> TUTANAK: İlkkan Fransızca terimler kullanarak kutuyu açıklamaya çalışıyor...',
+        step3Toast: 'İki mühürlü zarf çıktı! İlkkan: "Utku\'cuğum sağduyulu bir insan olarak benim zarfımı seçersin."',
+        step3CloneA: 'İLKKAN\'IN VİZYONU',
+        step3CloneB: 'YILMAZ\'IN ŞÜPHESİ',
+        titleCardSub: '"Abi benim suçum ne şimdi?! Ben Utku\'ya kurumsal düzeyde sürpriz doğum günü organize ettim!"',
+        bdayKicker: 'İLKKAN\'IN VİZYONER SÜRPRİZİ // KURUMSAL KUTLAMA PROTOKOLÜ',
+        bdayQuote: '"Utku\'cuğum yeni yaşın senin için tam bir Rönesans dönemi olsun. 5500 liralık montum feda olsun sana, iyi ki doğdun kardeşim!"',
+        blowBtnText: 'E — DİYAFRAM NEFESİYLE TÜM MUMLARI SÖNDÜR',
+        patches: [
+          ['Madde 1 — Kişisel Gelişim Zirvesi:', 'Yeni yaşında girdiğin her ortamda karizman ve ikna kabiliyetin +%100 artacak.'],
+          ['Madde 2 — 5500 TL Mont Kalkanı:', 'Kışın soğuk, yazın sıcak, yıl boyunca hiçbir stres sana işlemeyecek.'],
+          ['Madde 3 — Orta Çağ Şövalye Unvanı:', 'Arkadaş grubundaki tüm tartışmalarda otomatik haklı çıkma imtiyazı tanımlandı!']
+        ],
+        skills: [
+          { key: 'P', code: 'MNT', name: '5500 TL Mont', msg: '"İlkkan (Pasif): İlkkan montunun yakasını kaldırdı, ortama kurumsal bir hava geldi!"' },
+          { key: 'Q', code: 'KAS', name: 'Kol Kası Şovu', msg: '"İlkkan (Q): \'Utku şuraya bir dokun taş gibi!\' derken pastanın mumları yeniden alevlendi!"' },
+          { key: 'W', code: 'VİZ', name: 'Rönesans Vizyonu', msg: '"İlkkan (W): Entelektüel bir tirat attı, etrafa altın konfetiler yayıldı!"' },
+          { key: 'E', code: 'NEF', name: 'Diyafram Nefesi', msg: '"İlkkan (E): Kişisel gelişim kursunda öğrendiği diyafram nefesiyle tüm mumları söndürdü! İyi ki doğdun Utku!"' },
+          { key: 'R', code: 'ULT', name: 'Abi Benim Suçum Ne', msg: '"İLKKAN ULTİ (R): \'Hepiniz üstüme geliyorsunuz ama Utku\'nun doğum gününü ben hatırladım!\' Konfetiler patladı!"' }
+        ]
+      },
+
+      ersoy: {
+        id: 'ersoy',
+        name: 'Ersoy',
+        title: 'Kaos & Babaanne Hikayeleri',
+        role: 'Saha Görevlisi',
+        portrait: PORTRAITS.ersoy,
+        diag: '"Utku abi valla ben sadece mutfağa su içmeye gitmiştim, döndüğümde bu kutu masanın üstünde titriyordu..."',
+        metric1: ['Kaos İhtimali', '%100 GARANTİ'],
+        metric2: ['Aile Travması', 'Yamyam Babaanne'],
+        speaker: 'ERSOY\'UN İTİRAFI:',
+        missionDesc: '<strong>Ersoy:</strong> "Utku abi şunun kapağına bir dokunur musun? Rahmetli babaannemi yamyamlar yemeden hemen önce de kabilede böyle bir kutu açmışlardı..."',
+        step1Toast: 'Adım 1: Ersoy\'un getirdiği şüpheli kutuya dokun!',
+        step1Btn: 'ERSOY\'UN KUTUSUNA DOKUN (Q)',
+        step2Toast: 'Kutu zıplayıp kaçtı! Ersoy: "Abi yemin ederim içinde bir şey var! Yılmaz abi kızmadan yakala şunu Utku!"',
+        step2Btn: 'PANİKLE YAKALA (W)',
+        step2Log: '> TUTANAK: Ersoy alakasız bir akraba anısı anlatmaya başladı!',
+        step3Toast: 'Kutudan iki zarf düştü! Ersoy: "Abi hangisini açarsak açalım ihale bana kalacak galiba, birine dokun!"',
+        step3CloneA: 'ERSOY\'UN ZARFI',
+        step3CloneB: 'GİZEMLİ TUTANAK',
+        titleCardSub: '"Utku abi ben yanlışlıkla senin doğum günü pastanı mühürlü delil kutusuna koymuşum, iyi ki doğdun!"',
+        bdayKicker: 'ERSOY YANLIŞLIKLA DOĞUM GÜNÜ PARTİSİ KURDU',
+        bdayQuote: '"Utku abi valla pastayı sakla dediler diye delil dolabına kilitlemiştim... Yeni yaşın çok güzel geçsin, iyi ki doğdun!"',
+        blowBtnText: 'E — PANİKLE ÜFLEYİP TÜM MUMLARI SÖNDÜR',
+        patches: [
+          ['Madde 1 — Saf Şans Faktörü:', 'Yeni yaşında en karmaşık olaylardan bile Ersoy gibi mucizevi şekilde kazançlı çıkacaksın.'],
+          ['Madde 2 — Erasmuslu Yamyam Koruması:', 'Hiçbir tehlike veya stres senin neşeni kaçıramayacak.'],
+          ['Madde 3 — Sürpriz Parti Bereketi:', 'Yeni yaşında her günün beklenmedik güzel sürprizlerle dolu geçecek!']
+        ],
+        skills: [
+          { key: 'P', code: 'YMY', name: 'Yamyam Babaanne', msg: '"Ersoy (Pasif): Tam pasta kesilirken babaannesinin okyanus anısını anlattı, herkes koptu!"' },
+          { key: 'Q', code: 'SAF', name: 'Yanlışlıkla Başarı', msg: '"Ersoy (Q): Yanlış düğmeye bastı ama pastadaki mumları tekrar yakmayı başardı!"' },
+          { key: 'W', code: 'KAO', name: 'Tatlı Kaos', msg: '"Ersoy (W): Konfeti patlatayım derken bütün odayı altına boyadı!"' },
+          { key: 'E', code: 'PNK', name: 'Panikle Üfleme', msg: '"Ersoy (E): \'Abi pasta yanıyor!\' diyerek tek nefeste tüm mumları söndürdü! İyi ki doğdun Utku!"' },
+          { key: 'R', code: 'ULT', name: 'Büyük Parti Kaosu', msg: '"ERSOY ULTİ (R): Bütün mahalleyi Utku\'nun doğum gününe çağırmış! İyi ki doğdun Utku!"' }
+        ]
+      }
+    };
+
+    const CHAR_ORDER = ['yilmaz', 'ilkkan', 'ersoy'];
+    let currentCharId = 'yilmaz';
+    let bannedCharId = null;
+    let draftPhase = 'BAN'; // 'BAN' or 'PICK'
+    let disguiseStep = 1;
+    let candlesLit = [true, true, true];
+    let timerInterval = null;
+    let timerSeconds = 29;
+
+    // =====================================================
+    // MOBILE-FIRST HTML5 AUDIO ENGINE (iOS & Android Safe)
+    // =====================================================
+    let soundEnabled = true;
+    const sfxPlayer = document.getElementById('sfx-player');
+    const voPlayer = document.getElementById('vo-player');
+    const bgmPlayer = document.getElementById('bgm-player');
+
+    function enableMobileAudioSession() {
+      try {
+        if (navigator.audioSession) {
+          navigator.audioSession.type = 'playback';
+        }
+      } catch (e) {}
+    }
+
+    function playSfx(file) {
+      if (!soundEnabled) return;
+      enableMobileAudioSession();
+      try {
+        sfxPlayer.pause();
+        sfxPlayer.src = `audio/${file}`;
+        sfxPlayer.volume = 0.85;
+        const p = sfxPlayer.play();
+        if (p && p.catch) p.catch(() => {});
+      } catch (e) {}
+    }
+
+    function playVoiceFile(file) {
+      if (!soundEnabled) return;
+      enableMobileAudioSession();
+      try {
+        voPlayer.pause();
+        voPlayer.src = `audio/${file}`;
+        voPlayer.volume = 1.0;
+        const p = voPlayer.play();
+        if (p && p.catch) p.catch(() => {});
+      } catch (e) {}
+    }
+
+    function playVoice(charId, type = 'choose') {
+      playVoiceFile(`${charId}_${type}.mp3`);
+    }
+
+    function playBgm(file) {
+      if (!soundEnabled) return;
+      enableMobileAudioSession();
+      try {
+        bgmPlayer.pause();
+        bgmPlayer.src = `audio/${file}`;
+        bgmPlayer.volume = 0.8;
+        const p = bgmPlayer.play();
+        if (p && p.catch) p.catch(() => {});
+      } catch (e) {}
+    }
+
+    function playCurrentVoice(type = 'choose') {
+      playVoice(currentCharId, type);
+    }
+
+    function toggleAudio() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('sound-icon').textContent = soundEnabled ? '🔊' : '🔇';
+      document.getElementById('sound-label').textContent = soundEnabled ? 'SES AÇIK' : 'SES KAPALI';
+      if (!soundEnabled) {
+        sfxPlayer.pause();
+        voPlayer.pause();
+        bgmPlayer.pause();
+      } else {
+        playSfx('sfx_click.mp3');
+      }
+    }
+
+    // Unlock all 3 HTML5 audio channels synchronously inside first tap
+    function acceptSession() {
+      enableMobileAudioSession();
+      playSfx('sfx_intro.mp3');
+      playVoiceFile('vo_welcome.mp3');
+      bgmPlayer.src = 'audio/sfx_click.mp3';
+      bgmPlayer.volume = 0.01;
+      bgmPlayer.play().catch(() => {});
+
+      document.getElementById('ready-check-modal').classList.add('hidden');
+      startDraftTimer();
+    }
+
+    function startDraftTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerSeconds = 29;
+      const el = document.getElementById('draft-timer');
+      if (el) el.textContent = timerSeconds;
+      timerInterval = setInterval(() => {
+        timerSeconds = timerSeconds > 1 ? timerSeconds - 1 : 29;
+        if (el) el.textContent = timerSeconds;
+      }, 1000);
+    }
+
+    // =====================================================
+    // PARTICLE ENGINE
+    // =====================================================
+    const canvas = document.getElementById('fx-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      const rect = document.getElementById('app-frame').getBoundingClientRect();
+      canvas.width = rect.width;
+      canvas.height = rect.height;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    setTimeout(resizeCanvas, 50);
+
+    function spawnParticles(x, y, mode = 'gold') {
+      resizeCanvas();
+      const colors = mode === 'gold'
+        ? ['#c5a059', '#f4f0e6', '#d97706', '#9a9488']
+        : ['#c5a059', '#ef4444', '#facc15', '#f4f0e6', '#10b981', '#38bdf8'];
+      const count = mode === 'confetti' ? 70 : 30;
+      for (let i = 0; i < count; i++) {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = (Math.random() * 5 + 1.5) * (mode === 'confetti' ? 1.4 : 1);
+        particles.push({
+          x,
+          y,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed - (mode === 'confetti' ? 1.5 : 0.4),
+          size: Math.random() * 7 + 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          alpha: 1,
+          decay: Math.random() * 0.02 + 0.014,
+          shape: mode === 'confetti' && Math.random() > 0.35 ? 'rect' : 'circle'
+        });
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.06;
+        p.alpha -= p.decay;
+        if (p.alpha <= 0) {
+          particles.splice(i, 1);
+          continue;
+        }
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.fillStyle = p.color;
+        if (p.shape === 'rect') {
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.alpha * 6);
+          ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 0.6);
+        } else {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    function getEventCoords(e) {
+      const frameRect = document.getElementById('app-frame').getBoundingClientRect();
+      if (e && e.clientX && e.clientY) {
+        return { x: e.clientX - frameRect.left, y: e.clientY - frameRect.top };
+      }
+      if (e && e.currentTarget) {
+        const targetRect = e.currentTarget.getBoundingClientRect();
+        return {
+          x: targetRect.left + targetRect.width / 2 - frameRect.left,
+          y: targetRect.top + targetRect.height / 2 - frameRect.top
+        };
+      }
+      return { x: frameRect.width / 2, y: frameRect.height / 2 };
+    }
+
+    // =====================================================
+    // STAGE 0: RENDER BAN & PICK LOBBY
+    // =====================================================
+    function renderDraftLobby() {
+      const c = CHARACTERS[currentCharId];
+
+      const subEl = document.getElementById('draft-phase-subtitle');
+      const titleEl = document.getElementById('draft-phase-title');
+      const actionBtn = document.getElementById('draft-action-btn');
+      const skipBtn = document.getElementById('skip-ban-btn');
+      const slotAction = document.getElementById('utku-slot-action');
+
+      if (draftPhase === 'BAN') {
+        subEl.textContent = 'EVRE 1 // İTİRAZ VE YASAKLAMA HAKKI (UTKU)';
+        subEl.className = 'text-xs uppercase tracking-[0.2em] text-[#ef4444] font-bold';
+        titleEl.textContent = 'ÖNCE MASADA KAFA ÜTÜLEYECEK 1 KİŞİYİ YASAKLA!';
+        actionBtn.textContent = `${c.name.toUpperCase()}'I GÜNDEM DIŞI BIRAK (BAN)`;
+        actionBtn.className = 'btn-gibi-red flex-1 sm:flex-initial px-6 py-2.5 text-xs sm:text-sm cursor-pointer';
+        skipBtn.classList.remove('hidden');
+        slotAction.textContent = 'GÜNDEM DIŞI BIRAKIYOR...';
+        slotAction.className = 'text-xs font-bold uppercase tracking-wider text-[#ef4444]';
+      } else {
+        subEl.textContent = 'EVRE 2 // BAŞ MÜZAKERECİ SEÇİMİ (UTKU)';
+        subEl.className = 'text-xs uppercase tracking-[0.2em] text-[#c5a059] font-bold';
+        titleEl.textContent = 'KRİZİ KİMİNLE ÇÖZECEKSEN ONU SEÇ VE KİLİTLE!';
+        actionBtn.textContent = `${c.name.toUpperCase()} İLE MASAYA OTUR (KİLİTLE)`;
+        actionBtn.className = 'btn-gibi-gold flex-1 sm:flex-initial px-6 py-2.5 text-xs sm:text-sm cursor-pointer';
+        skipBtn.classList.add('hidden');
+        slotAction.textContent = 'MÜZAKERECİ SEÇİYOR...';
+        slotAction.className = 'text-xs font-bold uppercase tracking-wider text-[#c5a059]';
+      }
+
+      document.getElementById('utku-slot-avatar').innerHTML = c.portrait;
+      document.getElementById('utku-slot-char').textContent = `${c.name} — ${c.title}`;
+
+      document.getElementById('preview-char-name').textContent = `${c.name.toUpperCase()} — ${c.title}`;
+      document.getElementById('preview-char-role').textContent = c.role;
+      document.getElementById('preview-char-desc').textContent = c.diag;
+
+      document.getElementById('lobby-skills-row').innerHTML = c.skills.map((s, idx) => `
+        <button onclick="previewLobbySkill(${idx})" class="skill-slot h-12 flex flex-col items-center justify-center cursor-pointer">
+          <span class="font-cinzel text-xs font-black text-[#f4f0e6]">${s.code}</span>
+          <span class="skill-key">${s.key}</span>
+        </button>
+      `).join('');
+      document.getElementById('lobby-skill-detail').textContent = `${c.skills[0].key} (${c.skills[0].name}): ${c.skills[0].msg}`;
+
+      // Render 3 Character Cards
+      document.getElementById('char-grid').innerHTML = CHAR_ORDER.map(id => {
+        const ch = CHARACTERS[id];
+        const isSelected = id === currentCharId;
+        const isBanned = id === bannedCharId;
+        const selClass = isSelected ? (draftPhase === 'BAN' ? 'selected-ban' : 'selected-pick') : '';
+        return `
+          <button onclick="selectCharInLobby('${id}')" class="char-card ${selClass} ${isBanned ? 'is-banned' : ''} p-3 flex flex-col items-center text-center cursor-pointer">
+            <div class="relative w-16 h-16 rounded-full border-2 border-[#c5a059] bg-[#070709] flex items-center justify-center overflow-hidden mb-2">
+              ${ch.portrait}
+            </div>
+            ${isBanned ? '<div class="stamp-veto">REDDEDİLDİ</div>' : ''}
+            <span class="font-cinzel text-sm font-black text-[#f4f0e6]">${ch.name}</span>
+            <span class="text-[11px] text-[#c5a059] font-semibold mt-0.5">${ch.role}</span>
+            <p class="text-[11px] text-[#9a9488] mt-1.5 line-clamp-2">${ch.title}</p>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function previewLobbySkill(idx) {
+      playSfx('sfx_click.mp3');
+      const c = CHARACTERS[currentCharId];
+      const s = c.skills[idx];
+      document.getElementById('lobby-skill-detail').textContent = `${s.key} (${s.name}): ${s.msg}`;
+    }
+
+    function selectCharInLobby(id) {
+      if (draftPhase === 'PICK' && id === bannedCharId) {
+        bannedCharId = null;
+        document.getElementById('ban-char-name').textContent = 'İtiraz Geri Çekildi';
+        document.getElementById('ban-override-msg').innerHTML = `<span class="text-[#c5a059]">Hakem UTKU yetkisiyle ${CHARACTERS[id].name} üzerindeki veto kaldırıldı!</span>`;
+      }
+      currentCharId = id;
+      playSfx('sfx_click.mp3');
+      renderDraftLobby();
+    }
+
+    function skipBanPhase() {
+      playSfx('sfx_lockin.mp3');
+      draftPhase = 'PICK';
+      startDraftTimer();
+      document.getElementById('ban-override-msg').textContent = 'Yasaklama geçildi. Şimdi krizi çözeceğin karakteri kilitle!';
+      renderDraftLobby();
+    }
+
+    function handleDraftAction() {
+      const c = CHARACTERS[currentCharId];
+      if (draftPhase === 'BAN') {
+        bannedCharId = currentCharId;
+        playSfx('sfx_ban.mp3');
+        playVoice(currentCharId, 'ban');
+
+        document.getElementById('ban-char-name').textContent = `${c.name} (Reddedildi)`;
+        const nextChar = CHAR_ORDER.find(id => id !== bannedCharId) || 'yilmaz';
+        currentCharId = nextChar;
+        draftPhase = 'PICK';
+        startDraftTimer();
+        document.getElementById('ban-override-msg').innerHTML = `<strong class="text-[#ef4444]">${c.name}</strong> gündem dışı bırakıldı! Şimdi masaya oturacağın karakteri kilitle.`;
+        renderDraftLobby();
+      } else {
+        lockInCharacter();
+      }
+    }
+
+    function lockInCharacter() {
+      if (timerInterval) clearInterval(timerInterval);
+      playSfx('sfx_lockin.mp3');
+      playVoice(currentCharId, 'choose');
+
+      setupDisguiseStage(currentCharId);
+      document.getElementById('stage-select').classList.add('hidden');
+      document.getElementById('stage-birthday').classList.add('hidden');
+      document.getElementById('stage-disguise').classList.remove('hidden');
+      document.getElementById('change-char-top-btn').classList.remove('hidden');
+      document.getElementById('header-title').textContent = `OLAY YERİ TUTANAĞI // ${CHARACTERS[currentCharId].name.toUpperCase()} & UTKU`;
+    }
+
+    // =====================================================
+    // STAGE 1: 3-STEP ABSURD ARGUMENT TRAP
+    // =====================================================
+    function setupDisguiseStage(id) {
+      const c = CHARACTERS[id];
+      disguiseStep = 1;
+
+      document.getElementById('disguise-char-avatar').innerHTML = c.portrait;
+      document.getElementById('disguise-char-tag').textContent = `${c.name.toUpperCase()} — ${c.title}`;
+      document.getElementById('disguise-syndrome').textContent = c.diag;
+      document.getElementById('metric-1-label').textContent = c.metric1[0];
+      document.getElementById('metric-1-val').textContent = c.metric1[1];
+      document.getElementById('metric-2-label').textContent = c.metric2[0];
+      document.getElementById('metric-2-val').textContent = c.metric2[1];
+
+      document.getElementById('step-counter').textContent = 'TUTANAK 1 / 3';
+      document.getElementById('scene-speaker').textContent = c.speaker;
+      document.getElementById('mission-desc').innerHTML = c.missionDesc;
+      document.getElementById('arena-toast').textContent = c.step1Toast;
+
+      const btn = document.getElementById('trap-target-btn');
+      btn.style.transform = 'translate(0, 0)';
+      btn.classList.remove('hidden');
+      document.getElementById('trap-hp').style.width = '100%';
+      document.getElementById('trap-icon-box').innerHTML = c.portrait;
+      document.getElementById('trap-btn-label').textContent = c.step1Btn;
+
+      const clones = document.getElementById('clones-container');
+      clones.classList.add('hidden');
+      clones.classList.remove('flex');
+      document.getElementById('clone-a-icon').innerHTML = c.portrait;
+      document.getElementById('clone-b-icon').innerHTML = PORTRAITS[id === 'yilmaz' ? 'ilkkan' : 'yilmaz'];
+      document.getElementById('clone-a-label').textContent = c.step3CloneA;
+      document.getElementById('clone-b-label').textContent = c.step3CloneB;
+
+      document.getElementById('telemetry-log').textContent = `> ${c.name} ile olay yeri incelemesi başlatıldı...`;
+    }
+
+    function handleTrapClick(e) {
+      const c = CHARACTERS[currentCharId];
+      const coords = getEventCoords(e);
+      spawnParticles(coords.x, coords.y, 'gold');
+      playSfx('sfx_escape.mp3');
+
+      const btn = document.getElementById('trap-target-btn');
+      const toast = document.getElementById('arena-toast');
+      const stepCounter = document.getElementById('step-counter');
+      const hpBar = document.getElementById('trap-hp');
+      const log = document.getElementById('telemetry-log');
+
+      if (disguiseStep === 1) {
+        disguiseStep = 2;
+        stepCounter.textContent = 'TUTANAK 2 / 3';
+        hpBar.style.width = '45%';
+        const arenaRect = document.getElementById('arena').getBoundingClientRect();
+        const offsetX = Math.min(72, Math.floor(arenaRect.width * 0.22));
+        const offsetY = Math.min(26, Math.floor(arenaRect.height * 0.12));
+        btn.style.transform = `translate(${offsetX}px, -${offsetY}px)`;
+        document.getElementById('trap-btn-label').textContent = c.step2Btn;
+        toast.textContent = c.step2Toast;
+        log.textContent = c.step2Log;
+      } else if (disguiseStep === 2) {
+        disguiseStep = 3;
+        playSfx('sfx_lockin.mp3');
+        stepCounter.textContent = 'SON KARAR (3 / 3)';
+        btn.classList.add('hidden');
+        const clones = document.getElementById('clones-container');
+        clones.classList.remove('hidden');
+        clones.classList.add('flex');
+        toast.textContent = c.step3Toast;
+        log.textContent = `> KRİTİK: Masada iki karar zarfı belirdi! Son söz Hakem UTKU'da...`;
+      }
+    }
+
+    // =====================================================
+    // TRIGGER "GİBİ" BLACK TITLE CARD & REVEAL BIRTHDAY
+    // =====================================================
+    function triggerFinalAmbush(e) {
+      const c = CHARACTERS[currentCharId];
+      const coords = getEventCoords(e);
+      spawnParticles(coords.x, coords.y, 'confetti');
+
+      // Synchronously trigger audio inside user tap so mobile never blocks it
+      playSfx('sfx_intro.mp3');
+      playVoiceFile('vo_titlecard.mp3');
+      playBgm('sfx_birthday.mp3');
+
+      const overlay = document.getElementById('titlecard-overlay');
+      document.getElementById('titlecard-sub').textContent = c.titleCardSub;
+      overlay.classList.remove('hidden');
+      overlay.classList.add('flex');
+
+      setTimeout(() => {
+        overlay.classList.add('hidden');
+        overlay.classList.remove('flex');
+
+        document.getElementById('stage-disguise').classList.add('hidden');
+        document.getElementById('stage-select').classList.add('hidden');
+        document.getElementById('stage-birthday').classList.remove('hidden');
+        document.getElementById('change-char-top-btn').classList.remove('hidden');
+
+        document.getElementById('header-title').textContent = `GİBİ ÖZEL BÖLÜM // İYİ Kİ DOĞDUN UTKU (${c.name.toUpperCase()})`;
+        document.title = `Bölüm 74: İyi ki Doğdun UTKU! // Gibi Özel`;
+
+        renderBirthdayStage(currentCharId);
+        resizeCanvas();
+        spawnParticles(canvas.width * 0.25, canvas.height * 0.3, 'confetti');
+        spawnParticles(canvas.width * 0.75, canvas.height * 0.3, 'confetti');
+      }, 2400);
+    }
+
+    // =====================================================
+    // STAGE 2: RENDER BIRTHDAY STAGE
+    // =====================================================
+    function renderBirthdayStage(id) {
+      const c = CHARACTERS[id];
+
+      document.getElementById('bday-kicker').textContent = c.bdayKicker;
+      document.getElementById('bday-quote').textContent = c.bdayQuote;
+      document.getElementById('cake-title').textContent = `${c.name.toUpperCase()} USULÜ DOĞUM GÜNÜ PASTASI`;
+      document.getElementById('cake-char-badge').innerHTML = c.portrait;
+      document.getElementById('blow-btn').textContent = c.blowBtnText;
+      document.getElementById('patch-title').textContent = `KURUL KARARLARI // UTKU x ${c.name.toUpperCase()}`;
+
+      document.getElementById('hud-char-avatar').innerHTML = c.portrait;
+      document.getElementById('hud-char-name').textContent = `${c.name} — ${c.title}`;
+
+      candlesLit = [true, true, true];
+      [0, 1, 2].forEach(i => {
+        const f = document.getElementById(`flame-${i}`);
+        if (f) f.style.display = 'block';
+      });
+      const status = document.getElementById('candle-status');
+      status.textContent = '3 MUM YANIYOR';
+      status.className = 'text-xs font-bold px-2.5 py-0.5 border border-[#c5a059] bg-[#070709] text-[#c5a059]';
+      document.getElementById('cake-action-text').innerHTML = `Mumlara dokun ya da aşağıdaki <strong>${c.skills[3].name} (E)</strong> butonuyla tek seferde söndür!`;
+
+      document.getElementById('patch-list').innerHTML = c.patches.map(p => `
+        <li class="flex items-start gap-2">
+          <span class="text-[#c5a059] font-bold">§</span>
+          <div>
+            <strong class="text-[#f4f0e6] font-cinzel">${p[0]}</strong>
+            <p class="text-xs text-[#9a9488] mt-0.5">${p[1]}</p>
+          </div>
+        </li>
+      `).join('');
+
+      document.getElementById('skill-buttons-grid').innerHTML = c.skills.map(s => `
+        <button onclick="castSkill('${s.key}')" class="flex flex-col items-center group cursor-pointer">
+          <div class="skill-slot w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center">
+            <span class="font-cinzel text-xs sm:text-sm font-black text-[#f4f0e6] group-hover:text-[#c5a059]">${s.code}</span>
+            <span class="skill-key">${s.key}</span>
+          </div>
+          <span class="text-[10px] text-[#9a9488] group-hover:text-[#f4f0e6] mt-1 truncate max-w-[64px] text-center">${s.name}</span>
+        </button>
+      `).join('');
+
+      document.getElementById('bday-char-bar').innerHTML = CHAR_ORDER.map(cid => {
+        const ch = CHARACTERS[cid];
+        const isCurrent = cid === currentCharId;
+        return `
+          <button onclick="switchBirthdayChar('${cid}')" class="flex items-center justify-center gap-2 p-2 border transition cursor-pointer ${
+            isCurrent
+              ? 'border-[#c5a059] bg-[#1c1812] shadow-[0_0_14px_rgba(197,160,89,0.4)]'
+              : 'border-[#3d311b] bg-[#0c0c10] hover:border-[#c5a059]'
+          }">
+            <div class="w-8 h-8 rounded-full overflow-hidden border border-[#c5a059] shrink-0 flex items-center justify-center">
+              ${ch.portrait}
+            </div>
+            <div class="text-left min-w-0">
+              <div class="font-cinzel text-xs font-bold text-[#f4f0e6] truncate">${ch.name}</div>
+              <div class="text-[10px] text-[#c5a059] truncate">${ch.role}</div>
+            </div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function switchBirthdayChar(id) {
+      currentCharId = id;
+      triggerFinalAmbush(null);
+    }
+
+    function blowCandle(index) {
+      if (!candlesLit[index]) return;
+      candlesLit[index] = false;
+      const flame = document.getElementById(`flame-${index}`);
+      if (flame) flame.style.display = 'none';
+
+      const remaining = candlesLit.filter(Boolean).length;
+      const status = document.getElementById('candle-status');
+      const actionText = document.getElementById('cake-action-text');
+
+      playSfx('sfx_click.mp3');
+      resizeCanvas();
+      spawnParticles(canvas.width * 0.35, canvas.height * 0.45, 'confetti');
+
+      if (remaining === 0) {
+        status.textContent = 'TUTANAK ONAYLANDI!';
+        status.className = 'text-xs font-bold px-2.5 py-0.5 border border-emerald-400 bg-emerald-950/60 text-emerald-200';
+        actionText.innerHTML = '<strong>TÜM MUMLAR SÖNDÜ!</strong> Yeni yaşında tüm dileklerin gerçek olsun <strong>Utku</strong>!';
+        playBgm('sfx_birthday.mp3');
+      } else {
+        status.textContent = `${remaining} MUM KALDI`;
+      }
+    }
+
+    function castSkill(key) {
+      const c = CHARACTERS[currentCharId];
+      const skillObj = c.skills.find(s => s.key === key) || c.skills[0];
+      resizeCanvas();
+
+      const quoteEl = document.getElementById('bday-quote');
+      const feedbackEl = document.getElementById('skill-feedback');
+      const cakeStage = document.getElementById('cake-stage');
+
+      quoteEl.textContent = skillObj.msg;
+      feedbackEl.textContent = `${skillObj.key} — ${skillObj.name} uygulandı!`;
+
+      if (key === 'Q') {
+        playSfx('sfx_escape.mp3');
+        spawnParticles(canvas.width * 0.35, canvas.height * 0.5, 'gold');
+        cakeStage.style.opacity = '0.25';
+        cakeStage.style.transform = 'scale(0.9)';
+        setTimeout(() => {
+          candlesLit = [true, true, true];
+          [0, 1, 2].forEach(i => {
+            const f = document.getElementById(`flame-${i}`);
+            if (f) f.style.display = 'block';
+          });
+          document.getElementById('candle-status').textContent = '3 MUM YANIYOR';
+          cakeStage.style.opacity = '1';
+          cakeStage.style.transform = 'scale(1)';
+          spawnParticles(canvas.width * 0.35, canvas.height * 0.5, 'gold');
+        }, 600);
+      } else if (key === 'E') {
+        [0, 1, 2].forEach(i => {
+          candlesLit[i] = false;
+          const f = document.getElementById(`flame-${i}`);
+          if (f) f.style.display = 'none';
+        });
+        const status = document.getElementById('candle-status');
+        status.textContent = 'TUTANAK ONAYLANDI!';
+        status.className = 'text-xs font-bold px-2.5 py-0.5 border border-emerald-400 bg-emerald-950/60 text-emerald-200';
+        document.getElementById('cake-action-text').innerHTML = `<strong>TAM İSABET!</strong> ${skillObj.name} ile tüm mumlar tek seferde söndü <strong>Utku</strong>!`;
+        spawnParticles(canvas.width * 0.35, canvas.height * 0.45, 'confetti');
+        playBgm('sfx_birthday.mp3');
+      } else if (key === 'R') {
+        playVoice(currentCharId, 'choose');
+        playBgm('sfx_birthday.mp3');
+        spawnParticles(canvas.width * 0.25, canvas.height * 0.3, 'confetti');
+        spawnParticles(canvas.width * 0.75, canvas.height * 0.3, 'confetti');
+        spawnParticles(canvas.width * 0.5, canvas.height * 0.65, 'gold');
+      } else {
+        playSfx('sfx_lockin.mp3');
+        spawnParticles(canvas.width * 0.5, canvas.height * 0.4, 'confetti');
+      }
+    }
+
+    function goToCharSelect() {
+      draftPhase = bannedCharId ? 'PICK' : 'BAN';
+      startDraftTimer();
+      renderDraftLobby();
+      document.getElementById('stage-birthday').classList.add('hidden');
+      document.getElementById('stage-disguise').classList.add('hidden');
+      document.getElementById('stage-select').classList.remove('hidden');
+      document.getElementById('change-char-top-btn').classList.add('hidden');
+      document.getElementById('header-title').textContent = 'KRİZ TUTANAĞI // HAKEM: UTKU';
+      document.title = 'Kurul Tutanağı // Dosya No: #UTKU-74';
+    }
+
+    renderDraftLobby();
+  </script>
+</body>
+</html>
