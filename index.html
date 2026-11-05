@@ -250,10 +250,7 @@
         </div>
 
         <div class="flex items-center gap-2.5 w-full sm:w-auto shrink-0">
-          <button onclick="playCharacterRepligi(currentCharId, true)" class="dossier-subpanel px-3.5 py-3 text-xs font-cinzel font-bold text-[#c5a059] hover:border-[#c5a059] cursor-pointer shrink-0">
-            🔊 REPLİĞİ DİNLE
-          </button>
-          <button id="lock-in-btn" onclick="lockInCharacter()" class="btn-gibi-gold flex-1 sm:flex-initial px-6 py-3 text-xs sm:text-sm cursor-pointer">
+          <button id="lock-in-btn" onclick="lockInCharacter()" class="btn-gibi-gold w-full sm:w-auto px-8 py-3.5 text-xs sm:text-sm cursor-pointer">
             MİKROFONU VER VE SLAYTI AÇ
           </button>
         </div>
@@ -455,12 +452,9 @@
               <img id="hud-char-img" src="img/yilmaz.jpg" alt="Konuşmacı" class="w-11 h-11 rounded-full border-2 border-[#c5a059] object-cover shrink-0" />
               <div>
                 <div id="hud-char-name" class="font-cinzel text-xs font-bold text-[#f4f0e6] uppercase"></div>
-                <div id="skill-feedback" class="text-xs text-[#c5a059]">Söyleşi tepkilerine dokun veya karakterin sesini dinle!</div>
+                <div id="skill-feedback" class="text-xs text-[#c5a059]">Kürsü tepkilerine dokunarak söyleşiye devam et!</div>
               </div>
             </div>
-            <button onclick="playCharacterRepligi(currentCharId, true)" class="btn-gibi-gold px-3 py-1.5 text-xs cursor-pointer shrink-0">
-              🔊 Repliği Dinle
-            </button>
           </div>
 
           <div id="panel-actions-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-2 w-full sm:w-auto"></div>
@@ -808,13 +802,11 @@
     function selectSpeaker(id) {
       currentCharId = id;
       playSfx('sfx_click.mp3');
-      playCharacterRepligi(id);
       renderSpeakerLobby();
     }
 
     function lockInCharacter() {
       playSfx('sfx_lockin.mp3');
-      playCharacterRepligi(currentCharId);
 
       setupDisguiseStage(currentCharId);
       document.getElementById('stage-select').classList.add('hidden');
@@ -904,7 +896,6 @@
       spawnParticles(coords.x, coords.y, 'confetti');
 
       playSfx('sfx_intro.mp3');
-      playCharacterRepligi(currentCharId);
       playBgm('sfx_birthday.mp3');
 
       const overlay = document.getElementById('titlecard-overlay');
