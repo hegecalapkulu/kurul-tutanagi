@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
   <title>Geleceğin Habercisi Genç Yetişkinler // Söyleşi Kayıt No: #UTKU-74</title>
   <meta property="og:title" content="Geleceğin Habercisi Genç Yetişkinler — Söyleşi & Panel Davetiyesi" />
   <meta property="og:description" content="Saha Araştırmacısı, Fütürist ve Düşün Emekçisi Konuşmacılarla Özel Söyleşi Oturumu — Onur Konuğu: UTKU." />
@@ -20,12 +20,20 @@
       --gibi-gold-dark: #6e5528;
       --gibi-red: #991b1b;
       --gibi-muted: #9a9488;
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+      --sal: env(safe-area-inset-left, 0px);
+      --sar: env(safe-area-inset-right, 0px);
     }
 
     * {
       box-sizing: border-box;
       -webkit-tap-highlight-color: transparent;
       touch-action: manipulation;
+    }
+
+    html {
+      height: -webkit-fill-available;
     }
 
     body {
@@ -35,6 +43,14 @@
       margin: 0;
       padding: 0;
       overflow-x: hidden;
+      min-height: 100vh;
+      min-height: 100dvh;
+      min-height: -webkit-fill-available;
+      padding-top: var(--sat);
+      padding-bottom: var(--sab);
+      padding-left: var(--sal);
+      padding-right: var(--sar);
+      -webkit-font-smoothing: antialiased;
     }
 
     .font-gibi {
@@ -119,7 +135,7 @@
     .candle-flame { animation: candleFlicker 0.6s ease-in-out infinite; transform-origin: bottom center; }
   </style>
 </head>
-<body class="min-h-screen flex flex-col items-center justify-center p-0 sm:p-4 select-none">
+<body class="min-h-[100dvh] flex flex-col items-center justify-start sm:justify-center p-0 sm:p-4 select-none">
 
   <!-- Persistent HTML5 Audio Elements (Mobile iOS & Android Safe) -->
   <audio id="sfx-player" playsinline preload="auto"></audio>
@@ -386,6 +402,7 @@
 
             <svg class="w-48 h-36 overflow-visible" viewBox="0 0 200 145" fill="none">
               <g onclick="blowCandle(0)" class="cursor-pointer">
+                <rect x="52" y="5" width="36" height="55" fill="transparent"/>
                 <rect x="66" y="33" width="8" height="24" rx="1" fill="#c5a059" stroke="#f4f0e6" stroke-width="1.5"/>
                 <g id="flame-0" class="candle-flame">
                   <path d="M70 15 C64 25, 66 32, 70 32 C74 32, 76 25, 70 15 Z" fill="#facc15"/>
@@ -393,6 +410,7 @@
                 </g>
               </g>
               <g onclick="blowCandle(1)" class="cursor-pointer">
+                <rect x="82" y="2" width="36" height="58" fill="transparent"/>
                 <rect x="96" y="29" width="8" height="28" rx="1" fill="#c5a059" stroke="#f4f0e6" stroke-width="1.5"/>
                 <g id="flame-1" class="candle-flame">
                   <path d="M100 11 C94 21, 96 28, 100 28 C104 28, 106 21, 100 11 Z" fill="#facc15"/>
@@ -400,6 +418,7 @@
                 </g>
               </g>
               <g onclick="blowCandle(2)" class="cursor-pointer">
+                <rect x="112" y="5" width="36" height="55" fill="transparent"/>
                 <rect x="126" y="33" width="8" height="24" rx="1" fill="#c5a059" stroke="#f4f0e6" stroke-width="1.5"/>
                 <g id="flame-2" class="candle-flame">
                   <path d="M130 15 C124 25, 126 32, 130 32 C134 32, 136 25, 130 15 Z" fill="#facc15"/>
